@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.537">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Thomas Haase">
+<meta name="dcterms.date" content="2024-01-15">
+
+<title>Statistik 1 - Aufgaben</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#streumaße" id="toc-streumaße" class="nav-link active" data-scroll-target="#streumaße"><span class="header-section-number">1</span> Streumaße</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-iqr" id="toc-aufgabe-iqr" class="nav-link" data-scroll-target="#aufgabe-iqr"><span class="header-section-number">1.1</span> Aufgabe IQR</a></li>
+  <li><a href="#aufgabe-durchschnitt-median" id="toc-aufgabe-durchschnitt-median" class="nav-link" data-scroll-target="#aufgabe-durchschnitt-median"><span class="header-section-number">1.2</span> Aufgabe Durchschnitt &amp; Median</a></li>
+  </ul></li>
+  <li><a href="#z-werte-indifferenztabelle" id="toc-z-werte-indifferenztabelle" class="nav-link" data-scroll-target="#z-werte-indifferenztabelle"><span class="header-section-number">2</span> Z-Werte &amp; Indifferenztabelle</a>
+  <ul class="collapse">
+  <li><a href="#z-werte" id="toc-z-werte" class="nav-link" data-scroll-target="#z-werte"><span class="header-section-number">2.1</span> Z-Werte</a></li>
+  <li><a href="#indifferenztabelle" id="toc-indifferenztabelle" class="nav-link" data-scroll-target="#indifferenztabelle"><span class="header-section-number">2.2</span> Indifferenztabelle</a>
+  <ul class="collapse">
+  <li><a href="#übung-1" id="toc-übung-1" class="nav-link" data-scroll-target="#übung-1">Übung 1</a></li>
+  <li><a href="#übung-2" id="toc-übung-2" class="nav-link" data-scroll-target="#übung-2">Übung 2</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#chi-quadrat-und-cramers-v---zusammenhang-nominaleordinale-variablen" id="toc-chi-quadrat-und-cramers-v---zusammenhang-nominaleordinale-variablen" class="nav-link" data-scroll-target="#chi-quadrat-und-cramers-v---zusammenhang-nominaleordinale-variablen"><span class="header-section-number">3</span> Chi-Quadrat und Cramer’s V - Zusammenhang nominale/ordinale Variablen</a>
+  <ul class="collapse">
+  <li><a href="#übung" id="toc-übung" class="nav-link" data-scroll-target="#übung"><span class="header-section-number">3.1</span> Übung</a></li>
+  </ul></li>
+  <li><a href="#spearman-rho" id="toc-spearman-rho" class="nav-link" data-scroll-target="#spearman-rho"><span class="header-section-number">4</span> Spearman Rho</a></li>
+  <li><a href="#pearsons-r" id="toc-pearsons-r" class="nav-link" data-scroll-target="#pearsons-r"><span class="header-section-number">5</span> Pearson’s R</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistik 1 - Aufgaben</h1>
+<p class="subtitle lead">Übungsaufgaben aus dem Tutorium</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Thomas Haase </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 15, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="streumaße" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Streumaße</h1>
+<section id="aufgabe-iqr" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="aufgabe-iqr"><span class="header-section-number">1.1</span> Aufgabe IQR</h2>
+<p>Ordne die Interquartilsabstände(IQRs) der Verteilungen nach ihrer Größe ohne zu rechnen.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/IQR_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(IQR_A &lt; IQR_B &lt; IQR_C\)</span></p>
+<p><strong>Warum?</strong></p>
+<p>Der IQR beschreibt den Abstand zwischen dem 25% und 75% Quartil der Verteilung.</p>
+<p>Eine mögliche Strategie ist also sich die Fläche als Verteilung vorzustellen. Diese Fläche wird durch den Median in genau 2 Tiele geteilt. Wenn man diese nochmal genau so teilt, dass auch dort die Flächen jeweils gleichgroß sind, sind die Trennlinien die Quartile.</p>
+<p>Der IQR ist nun der Abstand dieser Trennlinien.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/IQR_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<figcaption>Skizze für A und C</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="aufgabe-durchschnitt-median" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="aufgabe-durchschnitt-median"><span class="header-section-number">1.2</span> Aufgabe Durchschnitt &amp; Median</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Noten.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p><strong>1.</strong> Was ist die Durchschnittsnote im Fach Deutsch? <span class="math display">\[
+    \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+    \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\bar{x} = \frac{x_\textrm{1. Note}+x_\textrm{2. Note}+x_\textrm{3. Note}+x_\textrm{4. Note}}{\textrm{Anzahl der zu addierenden Noten}} = \frac{10+9+9+9}{4}=9,25\)</span></p>
+</div>
+</div>
+</div>
+<p><strong>2.</strong> Wie hoch war die durchschnittliche Abweichung (Varianz und Standardabweichung) im Fach Deutsch?</p>
+<p><span class="math display">\[\sigma^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n}\]</span></p>
+<p><span class="math display">\[\sigma = \sqrt{\sigma^2}\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Varianz:</p>
+<p><span class="math display">\[\frac{(10 - 9,25)^2 + (9 - 9,25)^2 + (9 - 9,25)^2 + (9 - 9,25)^2}{4}\]</span></p>
+<p><span class="math display">\[= \frac{(0,75)^2 + (-0,25)^2 + (-0,25)^2 + (-0,25)^2}{4}\]</span></p>
+<p><span class="math display">\[= \frac{0,5625 + 0,0625 + 0,0625 + 0,0625}{4}\]</span></p>
+<p><span class="math display">\[= \frac{0,75}{4} = 0,1875\]</span></p>
+<p>Standardabweichung: <span class="math display">\[\sqrt{0,1875} = 0,433\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>3.</strong> Ohne zu rechnen: Liegt der Median meiner Physiknote höher oder tiefer als der Mittelwert? Warum?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Der Median ist niedriger, weil die 13 Punkte als “Ausreißer” den Mittelwert mit nach oben ziehen. In Verteilungen mit wenigen hohen Werten bevorzugt man deshalb den Median um die “Lage der Verteilung” zu beschreiben.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="z-werte-indifferenztabelle" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Z-Werte &amp; Indifferenztabelle</h1>
+<section id="z-werte" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="z-werte"><span class="header-section-number">2.1</span> Z-Werte</h2>
+<p>Gegeben sind eine Obstschüssel voller Äpfel und eine Obstschüssel voller Birnen. Jeder Apfel und jede Birne werden nach Ästhetik auf einer Skala von 1-10 bewertet und die Bewertungen notiert.</p>
+<p><strong>Runde alle Rechnungen auf 2 Nachkommastellen</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Apfel-ID (Apfelnummer)</th>
+<th>Bewertung Äpfel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Birnen-ID (Birnennummer)</th>
+<th>Bewertung Birnen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.</strong> Berechne Durchschnitt und Standardabweichung für Äpfel und Birnen</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\bar{x}_{Äpfel} = 6,8\]</span> <span class="math display">\[\bar{x}_{Birnen} = 4,8\]</span></p>
+<p><span class="math display">\[\sigma_{Äpfel} = \pm 1,48\]</span> <span class="math display">\[\sigma_{Birnen} = \pm 3,96\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>2.</strong> Erstelle einen Zahlenstrahl für die Werte der Äpfel und einen für die Werte der Birnen, markiere auch den Durchschnitt und zeichne das Intervall der Standardabweichung ein.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>(Der Grüne Punkt markiert die 0, die Standardabweichung ist nicht eingetragen)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Strahl1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><strong>3.</strong> Berechne für jeden Wert der Äpfel und für jeden Wert der Birnen den dazugehörigen Zwert</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Apfel-ID</th>
+<th>Z-Apfel</th>
+<th>Birnen-ID</th>
+<th>Z-Birnen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1,48</td>
+<td>1</td>
+<td>-0,45</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0,13</td>
+<td>2</td>
+<td>-0,71</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>-1,21</td>
+<td>3</td>
+<td>0,81</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>-0,54</td>
+<td>4</td>
+<td>1,31</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>0,13</td>
+<td>5</td>
+<td>-0,96</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p><strong>4.</strong> Erstelle nun zwei neue Zahlenstrahle, in der Nähe der ursprünglichen Zahlenstrahlen auf deinem Zettel. Zeichne hier alle Z-Werte ein.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/Strahl2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Durch die Z-Transformation haben sich die Werte verschoben. Der Mittelwert wird immer auf die 0 geschoben. Der Rest der Verteilung wird so “zusammengedrückt” oder “auseinandergezogen”, dass die Standardabweichungen auf 1 gesetzt werden. Alle Werte der Verteilung werden relativ dazu angeordnet (Werte die wenig rechts vom Mittelwert lagen liegen wieder wenig rechts vom Mittelwert etc.)</p>
+</div>
+</div>
+</div>
+<p><strong>5.</strong> Nun vergleichen wir Äpfel mit Birnen: Welche Frucht ist insgesamt am besten bewertet?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Apfel Nummer 1 ist die Frucht, die am weitesten über dem Durchschnitt liegt, da der Z-Wert am höchsten positiv ist.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="indifferenztabelle" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="indifferenztabelle"><span class="header-section-number">2.2</span> Indifferenztabelle</h2>
+<section id="übung-1" class="level3">
+<h3 class="anchored" data-anchor-id="übung-1">Übung 1</h3>
+<p>x = Studierende besuchen das Tutorium</p>
+<p>y = Studierende bestehen die Statistikklausur</p>
+<p><em>(fiktive Werte)</em></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Tutorium besucht</th>
+<th>Tutorium nicht besucht</th>
+<th>Gesamt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bestanden</td>
+<td>9</td>
+<td>59</td>
+<td><strong>68</strong></td>
+</tr>
+<tr class="even">
+<td>nicht bestanden</td>
+<td>2</td>
+<td>14</td>
+<td><strong>16</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Gesamt</strong></td>
+<td><strong>11</strong></td>
+<td><strong>73</strong></td>
+<td><strong>84</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>1.</strong> Wie hoch ist der relative Anteil aller eingeschriebenen Studierenden die das Tutorium nicht besucht und die Klausur nicht bestanden haben?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\frac{14}{84}=16,6\%\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>2.</strong> Wie hoch ist der relative Anteil aller eingeschriebenen Studierenden die die Klausur bestanden haben?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\frac{68}{84}=80,9\%\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>3.</strong> Wie hoch ist der relative Anteil der Tutoriumsbesucher, die die Klausur bestanden haben?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\frac{9}{11}=81,8\%\]</span></p>
+</div>
+</div>
+</div>
+<p><strong>4.</strong> Wie viel Prozent aller bestehenden Studierenden haben das Tutorium besucht?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\frac{9}{68}=13,2\%\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="übung-2" class="level3">
+<h3 class="anchored" data-anchor-id="übung-2">Übung 2</h3>
+<p>Die Folgende Kreuztabelle ist nicht fiktiv und wurde mit Werten des <a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Gesundheitszustand-Relevantes-Verhalten/Tabellen/liste-rauchverhalten.html#119170">Statistischen Bundesamts 2021</a> erstellt</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Geschlecht x Rauchen</th>
+<th>Raucher</th>
+<th>Nichtraucher</th>
+<th>Gesamt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>männlich</td>
+<td>5059</td>
+<td>A</td>
+<td><strong>22684</strong></td>
+</tr>
+<tr class="even">
+<td>weiblich</td>
+<td>B</td>
+<td>C</td>
+<td><strong>23547</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Gesamt</strong></td>
+<td><strong>8738</strong></td>
+<td><strong>D</strong></td>
+<td><strong>46231</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Einer von vielen möglichen Lösungswegen:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[22684 - 5059 = 17625\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+B
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[8738 - 5059 = 3679\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+C
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[23547 - 3679 = 19868\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+D
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[17625 + 19868= 37493\]</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="chi-quadrat-und-cramers-v---zusammenhang-nominaleordinale-variablen" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Chi-Quadrat und Cramer’s V - Zusammenhang nominale/ordinale Variablen</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Intuition Erwartete Häufigkeit
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[f_{e(ij)} = \frac{\text{Zeilensumme} \cdot \text{Spaltensumme}}{n}\]</span> Die Gleichung kann leicht umgestellt werde zu: <span class="math inline">\(f_{e(ij)} = \text{Zeilensumme} \cdot \frac{\text{Spaltensumme}}{n}\)</span>. Nun wird deutlich, dass “Spaltensumme durch n” ein Prozentsatz ist (äquivalent ergibt sich <span class="math inline">\(f_{e(ij)} = \text{Spaltensumme} \cdot \frac{\text{Zeilensumme}}{n}\)</span>, was im Grunde dasselbe ist).</p>
+<p>Dieser Zeilensummenprozentsatz wird nun durch das Malrechnen auf alle Fälle der jeweiligen Spalte der Zelle angewendet.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Intuition Chi-Quadrat
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\chi^2 = \sum_{i=1}^{k} \sum_{j=1}^{m} \frac{(f_{b_{ij}} - f_{e_{ij}})^2}{f_{e_{ij}}}\]</span> Für jede Zelle werden die Abstände von beobachtetem und erwartetem Wert (Residuen) berechnet(<span class="math inline">\(f_{bij} − f_{eij}\)</span>). Da wir nur an den positiven Abständen interessiert sind (wie schon bei der Varianz) wird das Residuum der Zelle quadriert. Nun wird durch den erwarteten Wert geteilt„ weil wir von keinem Zusammenhang, also den erwarteten Werten ausgehen. Alles was wir bisher gerechnet haben wird für alle Zellen gerechnet und zusammengezählt. Das wird in der Gleichung damit erreicht, dass alle Spalten aufsummiert werden (<span class="math inline">\(\sum^m_{j=1}\)</span>) und diese Ergebnisse für alle Zeilen summiert werden (<span class="math inline">\(\sum^k_{i=1}\)</span>).</p>
+<ul>
+<li><p><span class="math inline">\(0 &lt; \chi^2 &lt; \infty\)</span></p></li>
+<li><p>Je größer der Wert desto größer der Zusammenhang (0: kein Zusammenhang)</p></li>
+<li><p><strong>ABER!!! Abhängig von n und der Variablenzahl.</strong></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Phi
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\phi\)</span> korrigiert die Abhängigkeit von n.&nbsp;Es ist sinnvoll in die Analyse mit einzubeziehen, wenn man den Zusammenhang unabhängig von der Gesamtfallzahl interpretieren möchte. <span class="math display">\[\phi=\sqrt{\frac{\chi^2}{n}}\]</span> - <span class="math inline">\(0&lt;\phi&lt;1;\)</span> wobei 0: kein Zusammenhang, 1: maximaler Zusammenhang</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Kontingenzkoeffizient C
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(C\)</span> korrigiert die Abhängigkeit vcon der Variablenanzahl. Der Grund dafür ist, dass der Versuch unabhängig von der Kategorienanzahl interpretieren zu können schief geht. Die Kategorienzahl muss wieder bei der Berechnung von <span class="math inline">\(C_{max}\)</span> mit einbezogen werden.</p>
+<ul>
+<li><span class="math inline">\(0 &lt; C &lt; C_{max};\)</span> wobei 0: kein Zusammenhang, <span class="math inline">\(C_{max}: max. Zusammenhang\)</span></li>
+</ul>
+<p><span class="math display">\[C = \sqrt{\frac{\chi^2}{\chi^2 + n}}\]</span> <span class="math display">\[C_{\text{max}} = \sqrt{\frac{R - 1}{R}} \quad \text{;} R = \text{Minimum von Zeilen- / Spaltenanzahl}\]</span></p>
+<p>Beispiele für R:</p>
+<p><span class="math inline">\(2\times2\)</span>: R = 2</p>
+<p><span class="math inline">\(3\times4\)</span>: R = 3</p>
+<p><span class="math inline">\(4\times3\)</span>: R = 3</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cramer’s V
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Cramer’s V wird für den Vergleich von <span class="math inline">\(\chi^2\)</span> aus verschieden großen Kreuztabellen genutzt.</p>
+<ul>
+<li><span class="math inline">\(0 &lt; \text{Cramer's V} &lt; 1\)</span></li>
+</ul>
+<p><span class="math display">\[\text{Cramer's V} = \sqrt{\frac{\chi^2}{\chi^2_{\text{max}}}} = \sqrt{\frac{\chi^2}{n \cdot (R - 1)}} = \sqrt{\frac{\chi^2}{n \cdot \text{min}(k, m) - 1}}\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Interpretation Cramer’s V und Phi
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Cramer’s V bzw. Phi</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>≤ 0,05</td>
+<td>kein Zusammenhang</td>
+</tr>
+<tr class="even">
+<td>&gt; 0,05 bis 0,10</td>
+<td>sehr schwacher Zusammenhang</td>
+</tr>
+<tr class="odd">
+<td>&gt; 0,10 bis 0,20</td>
+<td>schwacher Zusammenhang</td>
+</tr>
+<tr class="even">
+<td>&gt; 0,20 bis 0,40</td>
+<td>mittelstarker Zusammenhang</td>
+</tr>
+<tr class="odd">
+<td>&gt; 0,40 bis 0,60</td>
+<td>starker Zusammenhang</td>
+</tr>
+<tr class="even">
+<td>&gt; 0,60</td>
+<td>sehr starker Zusammenhang</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="übung" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="übung"><span class="header-section-number">3.1</span> Übung</h2>
+<p>Die Folgende Kreuztabelle ist nicht fiktiv und wurde mit Werten des <a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Gesundheitszustand-Relevantes-Verhalten/Tabellen/liste-rauchverhalten.html#119170">Statistischen Bundesamts 2021</a> erstellt.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Geschlecht x Rauchen</th>
+<th>Raucher</th>
+<th>Nichtraucher</th>
+<th>Gesamt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>männlich</td>
+<td>5059</td>
+<td>17625</td>
+<td><strong>22684</strong></td>
+</tr>
+<tr class="even">
+<td>weiblich</td>
+<td>3679</td>
+<td>19868</td>
+<td><strong>23547</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Gesamt</strong></td>
+<td><strong>8738</strong></td>
+<td><strong>37493</strong></td>
+<td><strong>46231</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>1.</strong> Berechne und interpretiere <span class="math inline">\(\chi^2\)</span> für die Tabelle.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Erwartete Werte:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Geschlecht x Rauchen</th>
+<th>Raucher</th>
+<th>Nichtraucher</th>
+<th>Gesamt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>männlich</td>
+<td><em>4287,443</em></td>
+<td><em>18396,56</em></td>
+<td><strong>22684</strong></td>
+</tr>
+<tr class="even">
+<td>weiblich</td>
+<td><em>4450,557</em></td>
+<td><em>19096,44</em></td>
+<td><strong>23547</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Gesamt</strong></td>
+<td><strong>8738</strong></td>
+<td><strong>37493</strong></td>
+<td><strong>46231</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\chi^2 = \sum_{i=1}^{k} \sum_{j=1}^{m} \frac{(f_{b_{ij}} - f_{e_{ij}})^2}{f_{e_{ij}}}\]</span> <span class="math display">\[= \frac{(5059 - 4287,443)^2}{4287,443} + \frac{(17625-18396,56)^2}{18396,56} + \frac{(3679 - 4450,557)^2}{4450,557} + \frac{(19868 - 19096,44)^2}{19096,44}\]</span> <span class="math display">\[= 138,847 + 32,360 + 133,759 + 31,174\]</span> <span class="math display">\[= 336,14\]</span> Im Verhältnis zur Größe der Fallzahl ist der Wert ziemlich gering. <span class="math inline">\(\rightarrow\)</span> kein Zusammenhang</p>
+</div>
+</div>
+</div>
+<p><strong>2.</strong> Berechne und interpretiere <span class="math inline">\(\phi\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\phi = \sqrt{\frac{336,14}{46231}} = 0,085\]</span> Der Wert liegt nahe an 0 <span class="math inline">\(\rightarrow\)</span> kein Zusammenhang</p>
+</div>
+</div>
+</div>
+<p><strong>3.</strong> Berechne und interpretiere <span class="math inline">\(C\)</span> und <span class="math inline">\(C_{max}\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>R = 2 <span class="math display">\[C = \sqrt{\frac{\chi^2}{\chi^2 + n}} = \sqrt{\frac{336,14}{336,14 + 46231}} = 0,085\]</span> <span class="math display">\[C_{\text{max}} = \sqrt{\frac{R - 1}{R}} = \sqrt{\frac{2-1}{2}} = 0,707\]</span> Verglichen mit dem Maximalen Wert ist C sehr klein <span class="math inline">\(\rightarrow\)</span> kein Zusammenhang</p>
+</div>
+</div>
+</div>
+<p><strong>4.</strong> Berechne und interpretiere Camer’s V.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\text{Cramer's V} = \sqrt{\frac{\chi^2}{n \cdot (R - 1)}} = \sqrt{\frac{336,14}{46231 \cdot (2 - 1)}} = 0,085\]</span></p>
+<p>In Tabelle schauen <span class="math inline">\(\rightarrow\)</span> sehr schwacher Zusammenhang</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="spearman-rho" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Spearman Rho</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tutoriumsfolien
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Auf den Tutoriumsfolien ist eine kurze Einführung, ein Beispiel sowie die Aufgaben weiter unten zu finden.</p>
+<ul>
+<li><a href="Slides.html"><strong>Link zu den Folien</strong></a></li>
+</ul>
+</div>
+</div>
+<p><strong>Übungsaufgabe</strong></p>
+<p>In einer kleinen Studie gaben 5 Personen ihre Vorlieben für zwei verschiedene Musikgenres ab. Dabei wurde eine Likertskala mit 1 = “mag ich gar nicht” bis 5 = “mag ich sehr” verwendet.</p>
+<p><strong>Frage:</strong> Gibt es einen Zusammenhang zwischen den Musikgenres?</p>
+<p>Berechne Spearman’s <span class="math inline">\(\rho\)</span> um die Frage zu beantworten.</p>
+<hr>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Person</th>
+<th>Genre A</th>
+<th>Genre B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>1. Ränge zuweisen</strong></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Person</th>
+<th>Genre A</th>
+<th>Genre B</th>
+<th>Rang Genre A</th>
+<th>Rang Genre B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>3.5</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2.5</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>4</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>3</td>
+<td>2</td>
+<td>3.5</td>
+<td>2.5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Differenz der Ränge berechnen</strong></p>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Person</th>
+<th>Genre A</th>
+<th>Genre B</th>
+<th>Rang Genre A</th>
+<th>Rang Genre B</th>
+<th>Rang Differenz <span class="math inline">\(d\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3</td>
+<td>4</td>
+<td>3.5</td>
+<td>4</td>
+<td>-0.5</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2.5</td>
+<td>-0.5</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>-3</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>4</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>3</td>
+<td>2</td>
+<td>3.5</td>
+<td>2.5</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. Rho berechnen</strong></p>
+<p><span class="math display">\[\rho = 1 - \frac{6 \cdot \sum^{n}_{i=1}{d^2_i}}{n \cdot (n^2-1)}\]</span></p>
+<p><span class="math display">\[= 1 - \frac{6 \cdot ((-0.5)^2 + (-0.5)^2 + 0^2 + (-3)^2 + 3^2 + 1^2)}{n \cdot (n^2-1)}\]</span></p>
+<p><span class="math display">\[= 1 - \frac{6 \cdot (0.25     + 0.25     + 0   + 9      + 9   + 1)}{6 \cdot (6^2-1)}\]</span></p>
+<p><span class="math display">\[= 1 - \frac{117}{6 \cdot (36-1)}\]</span></p>
+<p><span class="math display">\[= 1 - \frac{117}{6 \cdot 35}\]</span> <span class="math display">\[= 1 - \frac{117}{210}\]</span> <span class="math display">\[= 1 - 0.557 = 0.443\]</span></p>
+<p>Mittlere positive Korrelation ==&gt; <em>“Wer Genre A mag, mag wahrscheinlich auch Genre B”</em></p>
+</div>
+</div>
+</div>
+</section>
+<section id="pearsons-r" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Pearson’s R</h1>
+<p>Eine Zimmerpflanze steht in einem Zimmer welches durch unterschiedliches heizen Temperaturschwankungen unterliegt. In der folgenden Tabelle sind die Zimmertemperatur in <span class="math inline">\(^\circ\mathrm{C}\)</span> und der Winkel der Pflanzenblätter aufgezeichnet. <strong>Wirkt sich die Zimmertemperatur auf den Zustand der Pflanze aus?</strong> Berechne dazu den Pearson Korrelationskoeffizienten.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(^\circ\mathrm{C}\)</span></th>
+<th>Winkel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>15</td>
+<td>56</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>44</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>28</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[r = \frac{\sum (x_i - \bar{x})\cdot(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \cdot \sum (y_i - \bar{y})^2}}\]</span> Für die Formel werden die Durchschnitte beider Variablen benötigt.</p>
+<p><span class="math display">\[\bar{x} = \frac{15+16+14+14+16}{5} = 15\]</span> <span class="math display">\[\bar{y} = \frac{56+50+44+23+28}{5} = 40,2\]</span></p>
+<hr>
+<p><strong>Nun werden die drei Summen berechnet</strong></p>
+<p><strong>1.</strong> <span class="math display">\[\sum (x_i - \bar{x})\cdot(y_i - \bar{y})\]</span> <span class="math display">\[= (15-15)\cdot(56-40,2) + (16-15)\cdot(50-40,2) + (14-15)\cdot(44-40,2)\]</span> <span class="math display">\[+ (14-15)\cdot(23-40,2) + (16-15)\cdot(28-40,2)\]</span> <span class="math display">\[= 0 + 9,8 + (-3,8) + 17,2 + (-12,2)\]</span> <span class="math display">\[= 11\]</span></p>
+<p><strong>2.</strong> <span class="math display">\[\sum (x_i - \bar{x})^2\]</span> <span class="math display">\[= (15-15)^2+(16-15)^2+(14-15)^2+(14-15)^2+(16-15)^2\]</span> <span class="math display">\[= 4\]</span></p>
+<p><strong>3.</strong> <span class="math display">\[\sum (y_i - \bar{y})^2\]</span> <span class="math display">\[=(56-40,2)^2+(50-40,2)^2+(44-40,2)^2+(23-40,2)^2+(28-40,2)^2\]</span> <span class="math display">\[=804,8\]</span></p>
+<p><strong>Nun in die ursprüngliche Formel einsetzen</strong> <span class="math display">\[r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2 \sum (y_i - \bar{y})^2}}\]</span> <span class="math display">\[=\frac{11}{\sqrt{4\cdot804,8}} = 0,194\]</span> Es besteht ein mittelschwacher Zusammenhang. Die Pflanze wird also leicht von der Zimmertemperatur beeinflusst. Je höher die Temperatur, desto höher ist der Blattwinkel. Die Pflanze scheint also warme Temperaturen zu präferieren.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ein kleines Spiel zu Pearson’s R
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="https://www.guessthecorrelation.com/#">Guess The Correlation Game</a></p>
+<p><img src="images/clipboard-2103919845.png" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

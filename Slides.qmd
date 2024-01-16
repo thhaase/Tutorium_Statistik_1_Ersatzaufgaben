@@ -1,0 +1,212 @@
+---
+title: "Tutorium 7"
+subtitle: "Spearmans Rangkorrelationskoeffizient"
+author: ""
+format: 
+  revealjs:
+    slide-number: true
+    theme: dark
+    transition: none
+    transition-speed: fast
+---
+
+# Warum?
+Ziel: Zusammenhänge zwischen Variablen herstellen
+
+::: {.incremental}
+- für nominal Variablen: Kreuztabelle
+- **für ordinale Variablen: Spearmans $\rho$**
+- für metrische Variablen: ? (nächste Sitzung)
+:::
+
+::: {.notes}
+Große Frage: Wofür brauchen wir Spearmans Rho?
+
+Wie können wir für nominale Variablen Zusammenhänge herstellen?
+==> Letzte Sitzung hatten wir bereits die Kreuztabelle kennengelernt. Wollen wir die nochmal wiederholen?
+:::
+
+# Spearmans Rho
+
+::: {.incremental}
+- $\rho = 1 - \frac{6 \cdot \sum^{n}_{i=1}{d^2_i}}{n \cdot (n^2-1)}$
+- $d_i  = R(x_i) - R(y_i)~~~\textrm{(Differenz der Rangplätze)}$
+- $-1 < \rho < 1$
+:::
+
+::: {.notes}
+- die formel ist eine modifikation der formel, für metrische variablen, die wir nächste woche lernen
+==> für uns erstmal wichtig: anwenden
+
+- Strategie: 
+  wir weisen jedem wert einer variablen einen rang zu und berechnen die differenz. 
+  
+  durch das benutzen der formel vergleichen wir wie stark niedrige ränge zusammen mit anderen niedrigen rängen vorkommen und umgekehrt
+
+- rho liegt immer zwischen -1 und 1 und zeigt so negative und positive zusammenhänge an
+:::
+
+
+# Beispiel
+
+
+| ID | Anzahl Tutoriumsbesuche | Klausurnote |
+|----|------------------------|-------------|
+| 1  | 0                      | 8           |
+| 2  | 3                      | 9           |
+| 3  | 0                      | 6           |
+| 4  | 1                      | 5           |
+| 5  | 12                     | 12          |
+| 6  | 10                     | 13          |
+
+::: {.notes}
+Wir gehen von folgender Tabelle aus:
+:::
+
+---
+
+:::: {.columns}
+::: {.column width="40%"}
+::: {.incremental}
+1. Ränge zuweisen <small>(kleinster Wert = 1, <br>zweitkleinster Wert = 2, ...)</small>
+2. wenn ein Rang 2x vorkommt wird der Durchschnitt gebildet <small>(z.B. 0 hat Rang 1 und 2, also 1,5)</small>
+:::
+:::
+::: {.column width="60%"}
+| ID | Ränge der Anzahl Tutoriumsbesuche | Ränge der Klausurnote |
+|----|----------------------------------|-----------------------|
+| 1  | 1,5                              | 3                     |
+| 2  | 3                                | 4                     |
+| 3  | 1,5                              | 2                     |
+| 4  | 2                                | 1                     |
+| 5  | 5                                | 5                     |
+| 6  | 4                                | 6                     |
+:::
+::::
+
+
+::: {.notes}
+Nun werden den Werte Ränge zugewiesen, also vom kleinsten Wert bis zum größten Wert durchnummeriert. Sollte ein Wert doppelt vorkommen, wird beiden der Durchschnitt des Ranges zugeordnet. 0 hat Rang 1, weil 0 zweimal vorkommt bilden wir den Durchschnitt der Ränge. Einer Null wird also Rang 1 zugeordnet, der anderen Rang 2 und der Durchschnitt ist 1,5. Die 1,5 wird beiden zugeordnet.
+:::
+
+---
+
+:::: {.columns}
+::: {.column width="40%"}
+1. Ränge zuweisen <small>(kleinster Wert = 1, <br>zweitkleinster Wert = 2, ...)</small>
+2. wenn ein Rang 2x vorkommt wird der Durchschnitt gebildet <small>(z.B. 0 hat Rang 1 und 2, also 1,5)</small>
+3. Differenz der Ränge ($d_i$) berechnen <br> <small>3 - 1,5 = 1,5 <br> 4 - 3 = 1 <br> ...</small>
+:::
+::: {.column width="60%"}
+| ID | Ränge der Anzahl Tutoriumsbesuche | Ränge der Klausurnote | $d_i$ |
+|----|----------------------------------|-----------------------|-------|
+| 1  | 1,5                              | 3                     | 1,5   |
+| 2  | 3                                | 4                     | 1     |
+| 3  | 1,5                              | 2                     | 0,5   |
+| 4  | 2                                | 1                     | 1     |
+| 5  | 5                                | 5                     | 0     |
+| 6  | 4                                | 6                     | 2     |
+:::
+::::
+
+---
+
+$\rho = 1 - \frac{6 \cdot \sum^{n}_{i=1}{d^2_i}}{n \cdot (n^2-1)}$
+
+. . . 
+
+$\textrm{Summe ausformulieren} \rightarrow \textrm{Ränge einsetzen} \\ = 1 - \frac{6 \cdot (1,5^2 + 1^2 + 0,5^2 + 1^2 + 0^2 + 2^2)}{n \cdot (n^2-1)}$
+
+. . .
+
+$\textrm{Ränge zusammenrechnen und n einsetzen}\\ = 1 - \frac{6 \cdot (2,25 + 1 + 0,25 + 1 + 4)}{6 \cdot (6^2-1)}$
+
+. . . 
+
+$= 1 - \frac{6 \cdot 8,5}{6 \cdot (36-1)}$
+
+. . .
+
+$= 1 - \frac{51}{6 \cdot 35}~~=~~1 - \frac{51}{210}~~=~~1 - 0,243 ~~=~~0,757$
+
+
+
+# Übung
+
+---
+
+::: {.panel-tabset}
+
+### Aufgabe
+
+:::: {.columns}
+::: {.column width="50%"}
+<font size="6" >In einer kleinen Studie gaben 5 Personen ihre Vorlieben für zwei verschiedene Musikgenres ab. Dabei wurde eine Likertskala mit 1 = "mag ich gar nicht" bis 5 = "mag ich sehr" verwendet.</font> 
+---
+**Frage:** Gibt es einen Zusammenhang zwischen den Musikgenres?
+:::
+::: {.column width="50%"}
+| Person | Genre A | Genre B |
+|--------|---------|---------|
+| 1      | 3       | 4       |
+| 2      | 2       | 2       |
+| 3      | 5       | 5       |
+| 4      | 1       | 3       |
+| 5      | 4       | 1       |
+| 6      | 3       | 2       |
+:::
+::::
+
+### Lösung - S.1
+
+:::: {.columns}
+::: {.column width="30%"}
+1. Ränge zuweisen
+:::
+::: {.column width="70%"}
+| Person | Genre A | Genre B | Rang Genre A | Rang Genre B |
+|--------|---------|---------|--------------|--------------|
+| 1      | 3       | 4       | 3.5          | 4            |
+| 2      | 2       | 2       | 2            | 2.5          |
+| 3      | 5       | 5       | 5            | 5            |
+| 4      | 1       | 3       | 1            | 3            |
+| 5      | 4       | 1       | 4            | 1            |
+| 6      | 3       | 2       | 3.5          | 2.5          |
+:::
+::::
+
+### Lösung - S.2
+
+:::: {.columns}
+::: {.column width="30%"}
+1. Ränge zuweisen
+2. Differenz der Ränge berechnen
+:::
+::: {.column width="70%"}
+| Person | Rang Genre A | Rang Genre B | Rang Differenz |
+|--------|--------------|--------------|----------------|
+| 1      | 3.5          | 4            | -0.5           |
+| 2      | 2            | 2.5          | -0.5           |
+| 3      | 5            | 5            | 0              |
+| 4      | 1            | 3            | -3             |
+| 5      | 4            | 1            | 3              |
+| 6      | 3.5          | 2.5          | 1              |
+:::
+::::
+### Lösung - S.3
+
+$\rho = 1 - \frac{6 \cdot \sum^{n}_{i=1}{d^2_i}}{n \cdot (n^2-1)}$
+
+$= 1 - \frac{6 \cdot ((-0.5)^2 + (-0.5)^2 + 0^2 + (-3)^2 + 3^2 + 1^2)}{n \cdot (n^2-1)}$
+
+$= 1 - \frac{6 \cdot (0.25     + 0.25     + 0   + 9      + 9   + 1)}{6 \cdot (6^2-1)}$
+
+$= 1 - \frac{117}{6 \cdot (36-1)}$
+
+$= 1 - \frac{117}{6 \cdot 35}$
+$= 1 - \frac{117}{210}$
+$= 1 - 0.557$
+$= 0.443$
+
+Mittlere positive Korrelation ==> _"Wer Genre A mag, mag wahrscheinlich auch Genre B"_
+:::
