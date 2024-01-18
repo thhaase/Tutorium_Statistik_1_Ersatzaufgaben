@@ -211,7 +211,7 @@ $$\frac{9}{68}=13,2\%$$
 
 ### Übung 2
 
-Die Folgende Kreuztabelle ist nicht fiktiv und wurde mit Werten des [Statistischen Bundesamts 2021](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Gesundheitszustand-Relevantes-Verhalten/Tabellen/liste-rauchverhalten.html#119170) erstellt
+Die folgende Kreuztabelle ist nicht fiktiv und wurde mit Werten des [Statistischen Bundesamts 2021](https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Gesundheit/Gesundheitszustand-Relevantes-Verhalten/Tabellen/liste-rauchverhalten.html#119170) erstellt
 
 | Geschlecht x Rauchen | Raucher  | Nichtraucher | Gesamt    |
 |----------------------|----------|--------------|-----------|
