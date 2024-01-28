@@ -114,7 +114,7 @@ Gegeben sind eine Obstschüssel voller Äpfel und eine Obstschüssel voller Birn
 
 $$\bar{x}_{Äpfel} = 6,8$$ $$\bar{x}_{Birnen} = 4,8$$
 
-$$\sigma_{Äpfel} = \pm 1,48$$ $$\sigma_{Birnen} = \pm 3,96$$
+$$\sigma_{Äpfel} = \pm 1,33$$ $$\sigma_{Birnen} = \pm 3,54$$
 :::
 
 **2.** Erstelle einen Zahlenstrahl für die Werte der Äpfel und einen für die Werte der Birnen, markiere auch den Durchschnitt und zeichne das Intervall der Standardabweichung ein.
