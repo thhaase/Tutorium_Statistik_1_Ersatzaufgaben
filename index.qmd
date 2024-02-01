@@ -258,25 +258,25 @@ Dieser Zeilensummenprozentsatz wird nun durch das Malrechnen auf alle Fälle der
 ::: {.callout-tip collapse="true"}
 ### Intuition Chi-Quadrat
 
-$$\chi^2 = \sum_{i=1}^{k} \sum_{j=1}^{m} \frac{(f_{b_{ij}} - f_{e_{ij}})^2}{f_{e_{ij}}}$$ Für jede Zelle werden die Abstände von beobachtetem und erwartetem Wert (Residuen) berechnet($f_{bij} − f_{eij}$). Da wir nur an den positiven Abständen interessiert sind (wie schon bei der Varianz) wird das Residuum der Zelle quadriert. Nun wird durch den erwarteten Wert geteilt„ weil wir von keinem Zusammenhang, also den erwarteten Werten ausgehen. Alles was wir bisher gerechnet haben wird für alle Zellen gerechnet und zusammengezählt. Das wird in der Gleichung damit erreicht, dass alle Spalten aufsummiert werden ($\sum^m_{j=1}$) und diese Ergebnisse für alle Zeilen summiert werden ($\sum^k_{i=1}$).
+$$\chi^2 = \sum_{i=1}^{k} \sum_{j=1}^{m} \frac{(f_{b_{ij}} - f_{e_{ij}})^2}{f_{e_{ij}}}$$ Für jede Zelle werden die Abstände von beobachtetem und erwartetem Wert (Residuen) berechnet($f_{bij} − f_{eij}$). Da wir nur an den positiven Abständen interessiert sind (wie schon bei der Varianz) wird das Residuum der Zelle quadriert. Nun wird durch den erwarteten Wert geteilt, weil von keinem Zusammenhang, also den erwarteten Werten ausgegangen wird. Die bisher beschriebene Rechnung wird für alle Zellen einzeln ausgeführt und zusammengezählt. Das wird in der Gleichung damit erreicht, dass die Ergebnisse der Formel für alle Zellen aufsummiert werden. Also in einer $2\times2$ Tabelle: i=1 j=1, i=2 j=1, i=1 j=2, i=2 j=2.  ($\sum^m_{j=1}  \sum^k_{i=1}$).
 
 -   $0 < \chi^2 < \infty$
 
 -   Je größer der Wert desto größer der Zusammenhang (0: kein Zusammenhang)
 
--   **ABER!!! Abhängig von n und der Variablenzahl.**
+-   **ABER!!! Nicht zum vergleich verschiedener Kontingenztabellen geeignet, weil von n und der Kategorienzahl abhängig.**
 :::
 
 ::: {.callout-tip collapse="true"}
 ### Phi
 
-$\phi$ korrigiert die Abhängigkeit von n. Es ist sinnvoll in die Analyse mit einzubeziehen, wenn man den Zusammenhang unabhängig von der Gesamtfallzahl interpretieren möchte. $$\phi=\sqrt{\frac{\chi^2}{n}}$$ - $0<\phi<1;$ wobei 0: kein Zusammenhang, 1: maximaler Zusammenhang
+$\phi$ korrigiert die Abhängigkeit des $\chi^2$ von n. Es ist sinnvoll in die Analyse mit einzubeziehen, wenn man den Zusammenhang unabhängig von der Gesamtfallzahl interpretieren möchte. $$\phi=\sqrt{\frac{\chi^2}{n}}$$ - $0<\phi<1;$ wobei 0: kein Zusammenhang, 1: maximaler Zusammenhang
 :::
 
 ::: {.callout-tip collapse="true"}
 ### Kontingenzkoeffizient C
 
-$C$ korrigiert die Abhängigkeit vcon der Variablenanzahl. Der Grund dafür ist, dass der Versuch unabhängig von der Kategorienanzahl interpretieren zu können schief geht. Die Kategorienzahl muss wieder bei der Berechnung von $C_{max}$ mit einbezogen werden.
+$C$ korrigiert die Abhängigkeit $\chi^2$'s von der Anzahl der Kategorien und von n. Allerdings muss die Kategorienzahl bei der Berechnung von $C_{max}$ mit einbezogen werden. Verschiedene Kontingenztabellen haben also unterschiedliche maximale $C$ Werte.
 
 -   $0 < C < C_{max};$ wobei 0: kein Zusammenhang, $C_{max}: max. Zusammenhang$
 
